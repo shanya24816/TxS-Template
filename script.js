@@ -13,6 +13,20 @@
 10 'https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif',
 
 */
+
+var gifs =[
+'url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)',
+'url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)',
+'url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)',
+'url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)',
+'url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)',
+'url(https://i.giphy.com/media/xUPGGDgB1ZlUduRov6/giphy.gif)',
+'url(https://i.giphy.com/media/wAxlCmeX1ri1y/giphy.gif)',
+'url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)',
+'url(https://i.giphy.com/media/1TJB4TPjtaEJq/giphy.gif)',
+'url(https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif)'
+]
+
 var currentSong = 0
 var songs = ['https://open.spotify.com/embed/track/6DCZcSspjsKoFjzjrWoCdn', ]
 // those are variables selecting main elements on the page
@@ -29,31 +43,20 @@ var youScore = document.getElementById('you-score')
 var spotifyScore = document.getElementById('spotify-score')
 var yrScore = document.getElementById('yr-score')
 var gifPanelBox = document.getElementById('gif-panel')
-var gifPanel2Box = document.getElementById('gif-panel')
 var resultButton = document.getElementById('result-button')
 var nextSongButton = document.getElementById('nextbutton')
-var secondPage = document.getElementById('secondpage')
-var firstPage = document.getElementById('firstpage')
+
 // this is how you replace the image from the background
 // mainImage.style.backgroundImage = "url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)"
 
 // this is how we hide the resultBox element
 resultBox.hidden = true;
 nextSongButton.hidden = true;
-secondPage.hidden = true;
+
 
 // this is how you create a function
 function testClickFunction(){
   resultBox.hidden = true;
-}
-
-// Second Song Page Stuff
-
-function nextSongClickFunction(){
-  secondPage.hidden = false;
-  firstPage.hidden = true;
-  voteBox.hidden = true;
-
 }
 
 
@@ -66,7 +69,7 @@ var userRating = 0;
 function firstbuttonClickFunction(){
   mainImage.style.backgroundImage = "url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)"
   userRating = 1;
-  resultButton.hidden = false;
+
 
 }
 function button2ClickFunction(){
@@ -85,7 +88,7 @@ function button3ClickFunction(){
 function button4ClickFunction(){
   mainImage.style.backgroundImage = "url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)"
   userRating = 4;
-    resultButton.hidden = false;
+  resultButton.hidden = false;
 }
 function button5ClickFunction(){
   mainImage.style.backgroundImage = "url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)"
@@ -118,6 +121,12 @@ function button10ClickFunction(){
   resultButton.hidden = false;
 }
 
+function nextSong(){
+	gifPanelBox.hidden = false;
+
+}
+
+
 // 4. Create a function to process the click on Compare button
 function compareCLickFunction(){
   gifPanelBox.hidden = true;
@@ -133,30 +142,48 @@ function compareCLickFunction(){
   }
   if(userRating === 2) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 3) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 4) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 5) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 6) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/xUPGGDgB1ZlUduRov6/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 7) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/wAxlCmeX1ri1y/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 8) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 9) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/1TJB4TPjtaEJq/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
   if(userRating === 10) {
    youImage.style.backgroundImage = "url(https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif)"
+   yrImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+   spotifyImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
   }
 
 }

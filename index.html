@@ -15,13 +15,13 @@
 <body>
   <header class="container py-2 mb-2">
     <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4">
-        YRLOGO
+      <div class="col-3">
+        <img src="yrlogo.png" id="yrlogo">
       </div>
-      <div class="col-4 text-center">
+      <div class="col-6 text-center">
         <h1 class="text-dark">Teens vs Spotify</h1>
       </div>
-      <div class="col-4">
+      <div class="col-3">
       </div>
     </div>
   </header>
@@ -37,7 +37,7 @@
       <div class="col-md-12">
         <div id="main-image" class="box-image">
           <div id="vote-box" class="label text-center">
-            <h1> Please vote ! </h1>
+            <h1> VOTE! </h1>
           </div>
         </div>
         <div class="iframe-circle">
@@ -45,11 +45,8 @@
         </div>
       </div>
       <div class="col-md-12">
-        <div class="row">
-          <div class="col-2">
-            <img class="img-fluid img-limit" src="images/1f62d.svg">
-          </div>
-          <div class="col-8">
+        <div class="row numbers" align="center">
+          <div class="col-12">
             <div class="row text-center">
               <button onclick="firstbuttonClickFunction()" class="col-1 cursor">1</button>
               <button onclick="button2ClickFunction()" class="col-1 cursor">2</button>
@@ -62,9 +59,6 @@
               <button onclick="button9ClickFunction()" class="col-1 cursor">9</button>
               <button onclick="button10ClickFunction()" class="col-1 cursor">10</button>
             </div>
-          </div>
-          <div class="col-2">
-            <img class="img-fluid img-limit" src="images/1f483.svg">
           </div>
         </div>
       </div>
@@ -105,84 +99,13 @@
         <div class="col-10">
         </div>
         <div class="col-2">
-          <button id="nextbutton" onclick="nextSongClickFunction()">
+          <button id="nextbutton" onclick="nextSong()">
             NEXT SONG
           </button>
         </div>
       </div>
 </div>
 
-
-<div id="secondpage">
-      <div id="gif-panel2" class="row">
-        <div class="col-md-12">
-          <div id="main-image2" class="box-image">
-            <div id="vote-box2" class="label text-center">
-              <h1> Please vote ! </h1>
-            </div>
-          </div>
-          <div class="iframe-circle">
-            <iframe id="song-iframe2" src="https://open.spotify.com/embed/track/6DCZcSspjsKoFjzjrWoCdn" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-2">
-              <img class="img-fluid img-limit" src="images/1f62d.svg">
-            </div>
-            <div class="col-8">
-              <div class="row text-center">
-                <button onclick="2firstbuttonClickFunction()" class="col-1 cursor">1</button>
-                <button onclick="2button2ClickFunction()" class="col-1 cursor">2</button>
-                <button onclick="2button3ClickFunction()" class="col-1 cursor">3</button>
-                <button onclick="2button4ClickFunction()" class="col-1 cursor">4</button>
-                <button onclick="button5ClickFunction()" class="col-1 cursor">5</button>
-                <button onclick="button6ClickFunction()" class="col-1 cursor">6</button>
-                <button onclick="button7ClickFunction()" class="col-1 cursor">7</button>
-                <button onclick="button8ClickFunction()" class="col-1 cursor">8</button>
-                <button onclick="button9ClickFunction()" class="col-1 cursor">9</button>
-                <button onclick="button10ClickFunction()" class="col-1 cursor">10</button>
-              </div>
-            </div>
-            <div class="col-2">
-              <img class="img-fluid img-limit" src="images/1f483.svg">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 text-center">
-          <div class="">
-            <a id="result-button2" href="#" class="btn btn-primary" role="button" onclick="compareCLickFunction()" aria-pressed="true">Compare</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="result2" class="row no-gutters text-center">
-          <div class="col-4">
-            <div id="you-image2" class="box-image you">
-              <div class="label">
-                YOU
-                <h1 id="you-score2"> 10 </h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div id="spotify-image2" class="box-image spotify">
-              <div class="label">
-                <img class="img-fluid img-limit" src="images/spotify.svg">
-                <h1 id="spotify-score2"> 3 </h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 yr">
-            <div id="yr-image2" class="box-image">
-              <div class="label">
-                <img class="img-fluid img-limit" src="images/yr.svg">
-                <h1 id="yr-score2"> 2 </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-</div>
   </main>
 
 
