@@ -1,26 +1,38 @@
 var iframeElement = document.querySelector("#song-iframe");
 
 var gifs =[
-'url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)',//1
-'url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)',//2
-'url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)',//3
-'url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)',//4
-'url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)',//5
-'url(https://i.giphy.com/media/xUPGGDgB1ZlUduRov6/giphy.gif)',//6
-'url(https://i.giphy.com/media/wAxlCmeX1ri1y/giphy.gif)',//7
-'url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)',//8
-'url(https://i.giphy.com/media/1TJB4TPjtaEJq/giphy.gif)',//9
-'url(https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif)'//10
+'url(https://media.giphy.com/media/5CtQQBulwgWly/giphy.gif)',//1
+'url(https://media.giphy.com/media/5YueTKmGG8hs1MqcdP/giphy.gif)',//2
+'url(https://media.giphy.com/media/EMA2GQg31g436/giphy.gif)',//3
+'url(https://media.giphy.com/media/ScZzMlETdv9mg/giphy.gif)',//4
+'url(https://media.giphy.com/media/NV5Pi952EDymZvh8J1/giphy.gif)',//5
+'url(https://media.giphy.com/media/pkmRPHqVENUOI/giphy.gif)',//6
+'url(https://media.giphy.com/media/l46CyxkMBFwHlJ3kk/giphy.gif)',//7
+'url(https://media.giphy.com/media/pa37AAGzKXoek/giphy.gif)',//8
+'url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)',//9
+'url(https://media.giphy.com/media/14qb1Uhf40ndw4/giphy.gif)'//10
 ]
 
-var currentSong = 3;
+var currentSong = 0;
 var songs = [
-		'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',
-		'spotify:track:7KXjTSCq5nL1LoYtL7XAwS',
-		'spotify:track:6tZ3b7ik1QDXFAZlXib0YZ',
-		'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',
-		'spotify:track:0KrmvQ1HsaWgeWSh8Cdb0o',
+		'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',//danceability": 0.698
+		'spotify:track:7KXjTSCq5nL1LoYtL7XAwS',//danceability": 0.908
+		'spotify:track:6tZ3b7ik1QDXFAZlXib0YZ',//danceability": 0.829
+		'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',//danceability": 0.698
+		'spotify:track:0KrmvQ1HsaWgeWSh8Cdb0o',//danceability": 0.547
  ]
+
+ var spotifyScores = [
+ 			7,
+ 			9,
+ 			8,
+ 			7,
+ 			5
+ ]
+
+
+
+
 
 var resultBox = document.getElementById('result')
 var result2Box = document.getElementById('result')
@@ -51,56 +63,56 @@ function testClickFunction(){
 var userRating = 0;
 
 function firstbuttonClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/5CtQQBulwgWly/giphy.gif)"
   userRating = 1;
 
 
 }
 function button2ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/5YueTKmGG8hs1MqcdP/giphy.gif)"
   userRating = 2;
   resultButton.hidden = false;
 
 }
 function button3ClickFunction(){
 
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/EMA2GQg31g436/giphy.gif)"
   userRating = 3;
   resultButton.hidden = false;
 
 }
 function button4ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/ScZzMlETdv9mg/giphy.gif)"
   userRating = 4;
   resultButton.hidden = false;
 }
 function button5ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/NV5Pi952EDymZvh8J1/giphy.gif)"
   userRating = 5;
   resultButton.hidden = false;
 }
 function button6ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/xUPGGDgB1ZlUduRov6/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/pkmRPHqVENUOI/giphy.gif)"
   userRating = 6;
   resultButton.hidden = false;
 }
 function button7ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/wAxlCmeX1ri1y/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/l46CyxkMBFwHlJ3kk/giphy.gif)"
   userRating = 7;
   resultButton.hidden = false;
 }
 function button8ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/pa37AAGzKXoek/giphy.gif)"
   userRating = 8;
   resultButton.hidden = false;
 }
 function button9ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/1TJB4TPjtaEJq/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)"
   userRating = 9;
   resultButton.hidden = false;
 }
 function button10ClickFunction(){
-  mainImage.style.backgroundImage = "url(https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif)"
+  mainImage.style.backgroundImage = "url(https://media.giphy.com/media/14qb1Uhf40ndw4/giphy.gif)"
   userRating = 10;
   resultButton.hidden = false;
 }
@@ -109,8 +121,9 @@ function nextSong(){
 	gifPanelBox.hidden = false;
 	resultBox.hidden = true;
 	nextSongButton.hidden = true;
-	setAlbumCover(songs[currentSong + 1], mainImage)
-
+	currentSong = currentSong +1
+	setAlbumCover(songs[currentSong], mainImage)
+	iframeElement.src = getSpotifyScr(songs[currentSong])
 }
 
 function compareCLickFunction(){
@@ -118,42 +131,12 @@ function compareCLickFunction(){
   youScore.innerHTML = userRating;
   resultBox.hidden = false;
   nextSongButton.hidden = false;
+  spotifyScore.innerHTML = spotifyScores[currentSong];
 
+ youImage.style.backgroundImage = gifs[userRating - 1];
 
-  if(userRating === 1) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/BCXMSiVZeo8xy/giphy.gif)"
-  }
-  if(userRating === 2) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/1d5KHhOA1oTpX7ROOi/giphy.gif)"
-  }
-  if(userRating === 3) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/3o6Zt5nSYQa0czSmnm/giphy.gif)"
-  }
-  if(userRating === 4) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/2tKCVxXIkBgqUZGDJb/giphy.gif)"
-  }
-  if(userRating === 5) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/KtfjlVSFI8EVO/giphy.gif)"
-  }
-  if(userRating === 6) {
-  }
-  if(userRating === 7) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/wAxlCmeX1ri1y/giphy.gif)"
-  }
-  if(userRating === 8) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/MhHcCN6PoTdL2/giphy.gif)"
-  }
-  if(userRating === 9) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/1TJB4TPjtaEJq/giphy.gif)"
-  }
-  if(userRating === 10) {
-   youImage.style.backgroundImage = "url(https://i.giphy.com/media/xe9csf50g4SqY/giphy.gif)"
-  }
-
+ spotifyImage.style.backgroundImage = gifs[spotifyScores[currentSong]-1];
 }
-
-
-
 
 function getSpotifyScr(song) {
 	const songCode = song.split(':')[2];
@@ -173,4 +156,5 @@ async function getAlbumCover(song) {
     .then(r => r.json());
   return data.thumbnail_url;
 }
+
 
