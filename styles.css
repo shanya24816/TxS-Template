@@ -9,9 +9,8 @@
   overflow: hidden;
 }
 .box-image {
-  /* border-radius: 40px; */
-/*  background-image: url(https://i.scdn.co/image/012ecd119617ac24ab56620ace4b81735b172686);
-*/  background-repeat: no-repeat;
+/*   border-radius: 50%; */
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   width: auto;
@@ -101,5 +100,12 @@ body {
 }
 #shanya {
 	margin-top: 15%;
+}
+.button {
+	height: 40px;
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 5px;
 }
 

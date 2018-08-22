@@ -15,13 +15,6 @@ var gifs =[
 
 var currentSong = 0;
 
- // var spotifyScores = [
- // 			7,
- // 			9,
- // 			8,
- // 			5
- // ]
-
 var songTitle = [
   'All the Stars',
   'Humble',
@@ -40,7 +33,7 @@ var songData = [
   {
 
     songTitle: "All the Stars",
-    artist: "Kendrick Lamar, SZA",
+    artistName: "Kendrick Lamar, SZA",
     spotifyScore: 7,
     songURI: 'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',//danceability": 0.698
     userRating: null,
@@ -49,7 +42,7 @@ var songData = [
 
   {
     songTitle: "Humble",
-    artist: "Kendrick Lamar",
+    artistName: "Kendrick Lamar",
     spotifyScore: 9,
     songURI: 'spotify:track:7KXjTSCq5nL1LoYtL7XAwS',//danceability": 0.908
     userRating: null,
@@ -58,7 +51,7 @@ var songData = [
 
   {
   songTitle: "Kevins Heart",
-    artist: "J Cole",
+    artistName: "J Cole",
     spotifyScore: 8,
     songURI: 'spotify:track:6tZ3b7ik1QDXFAZlXib0YZ',//danceability": 0.829
     userRating: null,
@@ -91,10 +84,13 @@ var yrScore = document.getElementById('yr-score')
 var gifPanelBox = document.getElementById('gif-panel')
 var resultButton = document.getElementById('result-button')
 var nextSongButton = document.getElementById('nextbutton')
-var SongName = document.getElementById('nameofsong')
+var songTitle = document.getElementById('song-title')
+var artistName = document.getElementById('artist-name')
+var resultsPage = document.getElementById('results-page')
 
 resultBox.hidden = true;
 nextSongButton.hidden = true;
+resultsPage.hidden = true;
 
 setAlbumCover(songData[0].songURI, mainImage)
 iframeElement.src = getSpotifyScr(songData[0].songURI)
@@ -160,14 +156,29 @@ function button10ClickFunction(){
   resultButton.hidden = false;
 }
 
+
+
+
 function nextSong(){
+	console.log(currentSong)
+ if (currentSong <= songData.length - 2) {
+
+	console.log("test");
+
 	gifPanelBox.hidden = false;
 	resultBox.hidden = true;
 	nextSongButton.hidden = true;
-	currentSong = currentSong +1
+	currentSong = currentSong + 1
 	setAlbumCover(songData[currentSong].songURI, mainImage)
 	iframeElement.src = getSpotifyScr(songData[currentSong].songURI)
+	songTitle.innerHTML = songData[currentSong].songTitle;
+	artistName.innerHTML = songData[currentSong].artistName;
+} else {
+	nextSongButton.innerHTML = "Finish";
+	console.log("finished list")
 }
+}
+
 
 function compareCLickFunction(){
   gifPanelBox.hidden = true;
@@ -179,6 +190,9 @@ function compareCLickFunction(){
  youImage.style.backgroundImage = gifs[userRating - 1];
 
  spotifyImage.style.backgroundImage = gifs[songData[currentSong].spotifyScore-1];
+ if (currentSong === songData.length - 1) {
+ 	nextSongButton.innerHTML = "Finish";
+ }
 }
 
 function getSpotifyScr(song) {
