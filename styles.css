@@ -108,4 +108,12 @@ body {
 	margin-bottom: 20px;
 	margin-right: 5px;
 }
-
+.boxes {
+  height: 300px;
+  width: 40%;
+  background-color: blue;
+}
+.bold {
+  color: white;
+  font-size: 48px;
+}

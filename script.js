@@ -15,20 +15,6 @@ var gifs =[
 
 var currentSong = 0;
 
-var songTitle = [
-  'All the Stars',
-  'Humble',
-  'Kevins Heart',
-  'Doing the Sponge'
-]
-
-var artist = [
-  'Kendrick Lamar, SZA',
-  'Kendrick Lamar',
-  'J Cole',
-  'Spongebob Squarepants'
-]
-
 var songData = [
   {
 
@@ -86,7 +72,7 @@ var resultButton = document.getElementById('result-button')
 var nextSongButton = document.getElementById('nextbutton')
 var songTitle = document.getElementById('song-title')
 var artistName = document.getElementById('artist-name')
-var resultsPage = document.getElementById('results-page')
+var resultsPage = document.getElementById('resultspage')
 
 resultBox.hidden = true;
 nextSongButton.hidden = true;
@@ -161,22 +147,64 @@ function button10ClickFunction(){
 
 function nextSong(){
 	console.log(currentSong)
- if (currentSong <= songData.length - 2) {
+	 if (currentSong <= songData.length - 2) {
 
-	console.log("test");
+		console.log("test");
 
-	gifPanelBox.hidden = false;
-	resultBox.hidden = true;
-	nextSongButton.hidden = true;
-	currentSong = currentSong + 1
-	setAlbumCover(songData[currentSong].songURI, mainImage)
-	iframeElement.src = getSpotifyScr(songData[currentSong].songURI)
-	songTitle.innerHTML = songData[currentSong].songTitle;
-	artistName.innerHTML = songData[currentSong].artistName;
-} else {
-	nextSongButton.innerHTML = "Finish";
-	console.log("finished list")
+		gifPanelBox.hidden = false;
+		resultBox.hidden = true;
+		nextSongButton.hidden = true;
+		currentSong = currentSong + 1
+		setAlbumCover(songData[currentSong].songURI, mainImage)
+		iframeElement.src = getSpotifyScr(songData[currentSong].songURI)
+		songTitle.innerHTML = songData[currentSong].songTitle;
+		artistName.innerHTML = songData[currentSong].artistName;
+		songData[currentSong].userRating = userRating;
+	} else {
+		nextSongButton.innerHTML = "Finish";
+    nextSongButton.onclick = resultsPageFunction();
+
+	}
 }
+function resultsPageFunction(){
+  resultBox.hidden = true;
+  nextSongButton.hidden = true;
+  resultsPage.hidden = false;
+  titleBox.hidden = true;
+
+}
+
+
+
+
+function totalScore(){
+	var totalResult = Math.abs(songData[0].userRating-songData[0].spotifyScore) + 
+					  Math.abs(songData[1].userRating-songData[1].spotifyScore) +
+					  Math.abs(songData[2].userRating-songData[2].spotifyScore) +
+					  Math.abs(songData[3].userRating-songData[3].spotifyScore)
+		totalResult = totalResult/songData.length;
+
+
+	// if (totalResult > 0 && totalResult <= 2.5) {
+	// 	very close
+	// }
+	// if (totalResult > 2.5 && totalResult <= 5.0) {
+	// 	pretty close
+	// }
+	// if (totalResult > 5.0 && totalResult <= 7.5) {
+	// 	pretty distant
+	// }
+	// if (totalResult > 7.5 && totalResult <= 10) {
+	// 	very far away
+	// }
+}
+
+
+function finishFunction(){
+	resultBox.hidden = true;
+	var finishButton = 
+	nextSongButton.hidden = true;
+	resultsPage.hidden = false;
 }
 
 
@@ -199,7 +227,24 @@ function getSpotifyScr(song) {
 	const songCode = song.split(':')[2];
 	return `https://open.spotify.com/embed/track/${songCode}`;
 }
+function getProfileTemplate(songData){
+  var template = `
+  <div class="row">
+    <h3 class="col-8">
+      Title
+    </h3>
+  </div>
 
+  <div class="row"> 
+    <div class="col-3">
+      ${songData.songTitle}
+      ${songData.artistName}
+
+    </div>
+
+  </div>
+`
+}
 
 async function setAlbumCover(song, element) {
   var aa = await getAlbumCover(song);
