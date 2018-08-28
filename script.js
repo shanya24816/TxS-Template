@@ -167,6 +167,7 @@ function nextSong(){
 	}
 }
 function resultsPageFunction(){
+  totalScore()
   resultBox.hidden = true;
   nextSongButton.hidden = true;
   resultsPage.hidden = false;

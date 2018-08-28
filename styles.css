@@ -16,7 +16,10 @@
   width: auto;
   padding-top: 50%;
 }
+.title {
+  font-size: 58px;
 
+}
 .img-limit {
   max-width: 30px;
 }
@@ -118,18 +121,26 @@ body {
   font-size: 48px;
 }
 .box1 {
-  background-image: url(allthestarsimg.jpg);
+  background-image: url(allthestarsimg.png);
   height: 500px;
+  text-align: center;
 }
 .box2 {
   background-image: url(humbleimg.png);
   height: 500px;
+  text-align: center;
 }
 .box3 {
   background-image: url(kevinsheartimg.png);
   height: 500px;
+  text-align: center;
 }
 .box4 {
   background-image: url(dointhespongeimg.png);
   height: 500px;
+  text-align: center;
+}
+.resultstext {
+  font-size: 30px; 
+  color: white;
 }
