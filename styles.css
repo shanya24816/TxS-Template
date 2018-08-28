@@ -117,3 +117,19 @@ body {
   color: white;
   font-size: 48px;
 }
+.box1 {
+  background-image: url(allthestarsimg.jpg);
+  height: 500px;
+}
+.box2 {
+  background-image: url(humbleimg.jpg);
+  height: 500px;
+}
+.box3 {
+  background-image: url(kevinsheartimg.jpg);
+  height: 500px;
+}
+.box4 {
+  background-image: url(dointhespongeimg.jpg);
+  height: 500px;
+}
