@@ -23,7 +23,7 @@ var songData = [
     spotifyScore: 7,
     songURI: 'spotify:track:3GCdLUSnKSMJhs4Tj6CV3s',//danceability": 0.698
     userRating: null,
-    backgroundColor: "green",
+    albumCover: "allthestarsimg.png",
   },
 
   {
@@ -32,7 +32,7 @@ var songData = [
     spotifyScore: 9,
     songURI: 'spotify:track:7KXjTSCq5nL1LoYtL7XAwS',//danceability": 0.908
     userRating: null,
-    backgroundColor: "blue",
+    albumCover: "humbleimg.png",
   },
 
   {
@@ -41,7 +41,7 @@ var songData = [
     spotifyScore: 8,
     songURI: 'spotify:track:6tZ3b7ik1QDXFAZlXib0YZ',//danceability": 0.829
     userRating: null,
-    backgroundColor: "orange",
+    albumCover: "kevinsheartimg.png",
   },
 
   {
@@ -50,7 +50,7 @@ var songData = [
     spotifyScore: 5,
     songURI: 'spotify:track:0KrmvQ1HsaWgeWSh8Cdb0o',//danceability": 0.547
     userRating: null,
-    backgroundColor: "purple",
+    albumCover: "dointhespongeimg.png",
 
   }
 
@@ -147,13 +147,14 @@ function button10ClickFunction(){
 
 function nextSong(){
 	console.log(currentSong)
-	 if (currentSong <= songData.length - 2) {
+	 if (currentSong < songData.length - 1) {
 
 		console.log("test");
 
 		gifPanelBox.hidden = false;
 		resultBox.hidden = true;
 		nextSongButton.hidden = true;
+    songData[currentSong].userRating = userRating;
 		currentSong = currentSong + 1
 		setAlbumCover(songData[currentSong].songURI, mainImage)
 		iframeElement.src = getSpotifyScr(songData[currentSong].songURI)
@@ -203,9 +204,32 @@ function totalScore(){
 
 function finishFunction(){
 	resultBox.hidden = true;
-	var finishButton = 
 	nextSongButton.hidden = true;
 	resultsPage.hidden = false;
+  var allSongs = "";
+  var count = 0;
+  while(count < songData.length){
+    allSongs = allSongs + getresultsTemplate(songData[count]);
+    count = count + 1;
+  }
+   resultsPage.innerHTML = allSongs;
+}
+function getresultsTemplate(song){
+  var template = `
+    <div onclick="finishButtonClick()">
+      <h1 class="resultstext text-center">
+        * RESULTS FOR ${song.songTitle} by ${song.artistName}
+      </h1>
+      <div class="row">
+      <div class="col-2"></div>
+        <div class="outer-box col-md-8 col-sm-12">
+          <img class="img-fluid" src="${song.albumCover}">
+          <div class="inner-box"> ${Math.abs(song.spotifyScore - song.userRating)}</div>
+        </div> 
+      </div>
+    </div>
+  `
+  return template
 }
 
 
@@ -221,30 +245,13 @@ function compareCLickFunction(){
  spotifyImage.style.backgroundImage = gifs[songData[currentSong].spotifyScore-1];
  if (currentSong === songData.length - 1) {
  	nextSongButton.innerHTML = "Finish";
+  nextSongButton.onclick = finishFunction();
  }
 }
 
 function getSpotifyScr(song) {
 	const songCode = song.split(':')[2];
 	return `https://open.spotify.com/embed/track/${songCode}`;
-}
-function getProfileTemplate(songData){
-  var template = `
-  <div class="row">
-    <h3 class="col-8">
-      Title
-    </h3>
-  </div>
-
-  <div class="row"> 
-    <div class="col-3">
-      ${songData.songTitle}
-      ${songData.artistName}
-
-    </div>
-
-  </div>
-`
 }
 
 async function setAlbumCover(song, element) {

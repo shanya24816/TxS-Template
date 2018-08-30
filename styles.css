@@ -28,8 +28,7 @@
   position: relative;
   height: 50px;
 }
-
-.box-relative>* {
+.box-relative> {
   position: absolute;
 }
 .score {
@@ -47,32 +46,6 @@
   -webkit-appearance: none;
   background: transparent;
 }
-/* Chrome Safari */
-.range-style::-webkit-slider-thumb{
-  -webkit-appearance: none;
-  background: #000;
-  box-shadow: 3px 2px 2px gray;
-  height: 30px;
-  width: 20px;
-  margin-top: -15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-/* Firefox */
-.range-style::-moz-range-thumb {
-  -webkit-appearance: none;
-  background: #000;
-  box-shadow: 3px 2px 2px gray;
-  height: 30px;
-  width: 20px;
-  margin-top: -15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-.range-style::-webkit-slider-runnable-track {
-  height: 4px;
-  background: gray;
-}
 .label {
   height: 80px;
   color: white;
@@ -87,6 +60,7 @@
 }
 body {
 	background-color: brown;
+  font-family: "Merritweater-Italic.ttc"
 }
 #yrlogo {
 	height: 50px;
@@ -120,27 +94,27 @@ body {
   color: white;
   font-size: 48px;
 }
-.box1 {
-  background-image: url(allthestarsimg.png);
-  height: 500px;
-  text-align: center;
-}
-.box2 {
-  background-image: url(humbleimg.png);
-  height: 500px;
-  text-align: center;
-}
-.box3 {
-  background-image: url(kevinsheartimg.png);
-  height: 500px;
-  text-align: center;
-}
-.box4 {
-  background-image: url(dointhespongeimg.png);
-  height: 500px;
-  text-align: center;
+.outer-box{
+    position: relative;
+} 
+
+.inner-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6vw;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
 }
 .resultstext {
   font-size: 30px; 
   color: white;
+}
+#result {
+  margin-top: 5%;
+}
+#nextbutton {
+  margin-top: 10%;
 }
